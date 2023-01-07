@@ -6,7 +6,7 @@ services:
         APP_HOST: $APP_NOSTR_IP
         APP_PORT: 9999
   relay: 
-    image: scsibug/nostr-rs-relay 
+    image: akbarworld/nostr-rs-relay:arm64 
     volumes:
       - ${APP_DATA_DIR}/config.toml,target=/usr/src/app/config.toml
     expose:
