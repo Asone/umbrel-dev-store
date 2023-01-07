@@ -18,7 +18,7 @@ services:
       - $APP_NOSTR_PORT:$APP_NOSTR_PORT
     networks:
       default:
-        ipv4_address: $$APP_NOSTR_IP
+        ipv4_address: $APP_NOSTR_IP
 
   # db:
   #   image: arm64v8/postgres:14.5-alpine
