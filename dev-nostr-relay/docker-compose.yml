@@ -7,15 +7,11 @@ services:
         APP_PORT: 9999
   relay: 
     image: scsibug/nostr-rs-relay 
-    depends_on: 
-      - db
     stop_grace_period: 1m
     restart: on-failure
     user: "1000:1000"
     volumes:
       - ${APP_DATA_DIR}/config.toml,target=/usr/src/app/config.toml
-    # links:
-    #   - db
     expose:
       - $APP_NOSTR_PORT
     ports:
