@@ -1,0 +1,53 @@
+version: '3.9'
+   
+services:
+  app_proxy:
+  relay: 
+    image: scsibug/nostr-rs-relay 
+    # depends_on: 
+    #   - db
+    stop_grace_period: 1m
+    restart: on-failure
+    user: "1000:1000"
+    volumes:
+      - ${APP_DATA_DIR}/config.toml,target=/usr/src/app/config.toml
+    # links:
+    #   - db
+    expose:
+      - $APP_NOSTR_PORT
+    ports:
+      - $APP_NOSTR_PORT:$APP_NOSTR_PORT
+    networks:
+      default:
+        ipv4_address: $$APP_NOSTR_IP
+
+  # db:
+  #   image: arm64v8/postgres:14.5-alpine
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #     - ${APP_DATA_DIR}/_provisioning/db/init:/docker-entrypoint-initdb.d
+  #   environment:
+  #     POSTGRES_PASSWORD: userpass
+  #     POSTGRES_USER: user
+  #   working_dir: /usr/src/app
+  #   networks:
+  #     default:
+  #       ipv4_address: $APP_LNFILESTORE_DB_IP
+        
+  # front: 
+  #   image: akbarworld/lnfilestorefront:umbrel
+  #   environment:
+  #     API_HOST: $DEVICE_DOMAIN_NAME
+  #     API_PORT: $APP_LNFILESTORE_API_PORT
+  #     FRONT_SERVER_PORT: 9999
+  #   ports:
+  #     # Replace <port> with the port that your app's web server
+  #     # is listening inside the Docker container. If you need to
+  #     # expose more ports, add them below.
+  #     - 9999:6143 
+  #   networks:
+  #     default:
+  #       ipv4_address: $APP_LNFILESTORE_IP
+volumes:
+  relay-db: {}
+

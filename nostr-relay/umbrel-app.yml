@@ -1,0 +1,23 @@
+manifestVersion: 1
+id: nostrrelay
+category: Networking
+name: Nostr Relay
+version: "1.0.0"
+tagline: Nostr Relay is a simple relay for nostr protocol
+description: >-
+  Some description to fulfill
+developer: God
+website: https://www.umbrel.com
+dependencies: []
+repo: https://www.umbrel.com
+support: https://www.umbrel.com
+port: 3434
+gallery:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
+path: ""
+deterministicPassword: false
+torOnly: false
+submitter: Asone
+submission: https://github.com/getumbrel/umbrel-apps/pull/253

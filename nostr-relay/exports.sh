@@ -1,0 +1,4 @@
+
+# FRONT
+export APP_NOSTR_IP="10.21.21.66"
+export APP_NOSTR_PORT="6142"
