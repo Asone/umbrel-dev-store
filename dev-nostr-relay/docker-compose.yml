@@ -4,7 +4,7 @@ services:
   app_proxy:
       environment:
         APP_HOST: $APP_NOSTR_IP
-        APP_PORT: 9999
+        APP_PORT: $APP_NOSTR_PORT
   relay: 
     image: akbarworld/nostr-rs-relay:arm64 
     volumes:
@@ -12,7 +12,7 @@ services:
     expose:
       - $APP_NOSTR_PORT
     ports:
-      - $APP_NOSTR_PORT:$APP_NOSTR_PORT
+      - $APP_NOSTR_PORT:8080
     networks:
       default:
         ipv4_address: $APP_NOSTR_IP
