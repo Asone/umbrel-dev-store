@@ -11,7 +11,7 @@ website: https://www.umbrel.com
 dependencies: []
 repo: https://www.umbrel.com
 support: https://www.umbrel.com
-port: 6333
+port: 6838
 gallery:
   - 1.jpg
   - 2.jpg

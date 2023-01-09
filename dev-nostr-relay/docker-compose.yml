@@ -16,34 +16,16 @@ services:
     networks:
       default:
         ipv4_address: $APP_NOSTR_IP
-
-  # db:
-  #   image: arm64v8/postgres:14.5-alpine
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
-  #     - ${APP_DATA_DIR}/_provisioning/db/init:/docker-entrypoint-initdb.d
-  #   environment:
-  #     POSTGRES_PASSWORD: userpass
-  #     POSTGRES_USER: user
-  #   working_dir: /usr/src/app
-  #   networks:
-  #     default:
-  #       ipv4_address: $APP_LNFILESTORE_DB_IP
-        
-  # front: 
-  #   image: akbarworld/lnfilestorefront:umbrel
-  #   environment:
-  #     API_HOST: $DEVICE_DOMAIN_NAME
-  #     API_PORT: $APP_LNFILESTORE_API_PORT
-  #     FRONT_SERVER_PORT: 9999
-  #   ports:
-  #     # Replace <port> with the port that your app's web server
-  #     # is listening inside the Docker container. If you need to
-  #     # expose more ports, add them below.
-  #     - 9999:6143 
-  #   networks:
-  #     default:
-  #       ipv4_address: $APP_LNFILESTORE_IP
+  client: 
+    image: akbarworld/astral:arm64
+    ports:
+      # Replace <port> with the port that your app's web server
+      # is listening inside the Docker container. If you need to
+      # expose more ports, add them below.
+      - $APP_ASTRAL_PORT:8000 
+    networks:
+      default:
+        ipv4_address: $APP_ASTRAL_IP
 volumes:
   relay-db: {}
 
