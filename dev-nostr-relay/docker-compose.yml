@@ -16,16 +16,22 @@ services:
     networks:
       default:
         ipv4_address: $APP_NOSTR_IP
-  client: 
-    image: akbarworld/astral:arm64
+
+  monitor: 
+    image: akbarworld/nostr-watch:arm64
     ports:
-      # Replace <port> with the port that your app's web server
-      # is listening inside the Docker container. If you need to
-      # expose more ports, add them below.
-      - $APP_ASTRAL_PORT:8000 
+      - $APP_NOSTR_WATCH_PORT:80 
     networks:
       default:
-        ipv4_address: $APP_ASTRAL_IP
+        ipv4_address: $APP_NOSTR_WATCH_IP
+
+  # astral: 
+  #   image: akbarworld/astral:arm64
+  #   ports:
+  #     - $APP_ASTRAL_PORT:8000 
+  #   networks:
+  #     default:
+  #       ipv4_address: $APP_ASTRAL_IP
 volumes:
   relay-db: {}
 
