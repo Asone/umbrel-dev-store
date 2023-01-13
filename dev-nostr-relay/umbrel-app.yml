@@ -5,8 +5,9 @@ name: Nostr Relay
 version: "1.0.0"
 tagline: Nostr Relay is a simple relay for nostr protocol
 description: >-
-  Some description to fulfill
-developer: God
+  Nostr package of a local relay and embedded client.
+  
+developer: Community based
 website: https://www.umbrel.com
 dependencies: []
 repo: https://www.umbrel.com

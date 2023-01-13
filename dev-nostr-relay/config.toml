@@ -2,7 +2,7 @@
 
 [info]
 # The advertised URL for the Nostr websocket.
-relay_url = "wss://nostr.example.com/"
+relay_url = "ws://umbrel.localhost:6837"
 
 # Relay information for clients.  Put your unique server name here.
 name = "umbrel"
@@ -98,7 +98,7 @@ reject_future_seconds = 1800
 
 # Event persistence buffer size, in number of events.  This provides
 # backpressure to senders if writes are slow.
-#event_persist_buffer = 4096
+event_persist_buffer = 4096
 
 # Event kind blacklist. Events with these kinds will be discarded.
 #event_kind_blacklist = [
